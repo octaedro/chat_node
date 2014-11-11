@@ -54,6 +54,6 @@ io.on('connection', function(socket) {
 /**
  * Iniciamos la aplicaciÃ³n en el puerto 3000
  */
-http.listen(3000,'http://54.68.3.96/', function() {
+http.listen(3000, function() {
   console.log('listening on *:3000');
 });
