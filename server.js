@@ -4,7 +4,7 @@
  * @Created on: 11 Nov, 2014
  */
 
-/* Librerias necesarias para la aplicacion */
+/* Librerias necesarias para la aplicacion*/
 var app  = require('express')();
 var http = require('http').Server(app);
 var io   = require('socket.io')(http);
