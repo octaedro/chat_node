@@ -15,7 +15,7 @@ var io   = require('socket.io')(http);
  *  de manera que sin importar la ruta que el usuario solicite
  *  siempre lo direccionaremos al html del sistema de chat.
  */
-app.get('*', function(req, res) {
+app.get('/2', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
@@ -54,6 +54,6 @@ io.on('connection', function(socket) {
 /**
  * Iniciamos la aplicaciÃ³n en el puerto 3000
  */
-http.listen(80, function() {
+http.listen(3000, function() {
   console.log('listening on *:3000');
 });
