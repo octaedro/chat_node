@@ -19,7 +19,7 @@ app.get('*', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
-app.get('/2', function(req, res) {
+app.get('/admin', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
@@ -42,11 +42,9 @@ io.on('connection', function(socket) {
    */
   socket.on('chat message', function(msg) {
     io.emit('chat message', msg);
-    //reloj(0);
   });
 
   socket.on('reloj', function(msg) {
-    //io.emit('chat message', msg);
     reloj(0);
   });
   
