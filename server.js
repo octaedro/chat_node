@@ -15,7 +15,7 @@ var io   = require('socket.io')(http);
  *  de manera que sin importar la ruta que el usuario solicite
  *  siempre lo direccionaremos al html del sistema de chat.
  */
-app.get('/2', function(req, res) {
+app.get('*', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
@@ -38,6 +38,12 @@ io.on('connection', function(socket) {
    */
   socket.on('chat message', function(msg) {
     io.emit('chat message', msg);
+    //reloj(0);
+  });
+
+  socket.on('reloj', function(msg) {
+    //io.emit('chat message', msg);
+    reloj(0);
   });
   
   /**
@@ -57,3 +63,14 @@ io.on('connection', function(socket) {
 http.listen(3000, function() {
   console.log('listening on *:3000');
 });
+
+function reloj(i){    
+    setInterval(function(){
+      if(i<10){
+        io.emit('mostrar_reloj',++i); 
+      }
+      else{
+        clearInterval();
+      }
+    }, 1000);
+}
