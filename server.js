@@ -1,6 +1,6 @@
 /**
  * Server.js
- * @author : DiganmeGiovanni | https://twitter.com/DiganmeGiovanni
+ * @author : octaedro | https://twitter.com/fermarichal
  * @Created on: 25 Oct, 2014
  */
 
