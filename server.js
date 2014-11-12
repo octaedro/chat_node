@@ -19,6 +19,10 @@ app.get('*', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
+app.get('/2', function(req, res) {
+  res.sendFile( __dirname + '/views/chat.html');
+});
+
 
 /** *** *** ***
  *  Configuramos Socket.IO para estar a la escucha de
