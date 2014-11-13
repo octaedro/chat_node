@@ -15,12 +15,16 @@ var io   = require('socket.io')(http);
  *  de manera que sin importar la ruta que el usuario solicite
  *  siempre lo direccionaremos al html del sistema de chat.
  */
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
 app.get('/admin', function(req, res) {
-  res.sendFile( __dirname + '/views/chat.html');
+  res.sendFile( __dirname + '/views/admin.html');
+});
+
+app.get('/files/js/script.js', function(req, res) {
+  res.sendFile( __dirname + '/files/js/script.js');
 });
 
 
