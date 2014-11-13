@@ -11,11 +11,6 @@ var http = require('http').Server(app);
 var io   = require('socket.io')(http);
 
 
-var sn = require('scriptnuestro');
-var sni = new sn();
-
-
-
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
  *  de manera que sin importar la ruta que el usuario solicite
@@ -29,31 +24,28 @@ app.get('/2', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
 });
 
-app.get('/views/js/scriptnuestro.js', function (req, res) {
-   res.sendfile( __dirname + '/views/js/scriptnuestro.js');
-});
 
 /** *** *** ***
- *  Configuramos scriptnuestro.socket.IO para estar a la escucha de
+ *  Configuramos Socket.IO para estar a la escucha de
  *  nuevas conexiones.
  */
-io.on('connection', function(sni.socket) {
+io.on('connection', function(socket) {
   
   console.log('New user connected');
   
   /**
-   * Cada nuevo scriptnuestro.socket debera estar a la escucha
+   * Cada nuevo socket debera estar a la escucha
    * del evento 'chat message', el cual se activa
    * cada vez que un usuario envia un mensaje.
    * 
    * @param  msg : Los datos enviados desde el cliente a 
-   *               travÃ©s del scriptnuestro.socket.
+   *               travÃ©s del socket.
    */
-  sni.socket.on('chat message', function(msg) {
+  socket.on('chat message', function(msg) {
     io.emit('chat message', msg);
   });
 
-  sni.socket.on('reloj', function(msg) {
+  socket.on('reloj', function(msg) {
     reloj(0);
   });
   
@@ -61,7 +53,7 @@ io.on('connection', function(sni.socket) {
    * Mostramos en consola cada vez que un usuario
    * se desconecte del sistema.
    */
-  sni.socket.on('disconnect', function() {
+  socket.on('disconnect', function() {
     console.log('User disconnected');
   });
   

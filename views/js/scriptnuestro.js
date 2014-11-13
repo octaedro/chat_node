@@ -1,4 +1,4 @@
-var scriptnuestro = function(){
+
 
 var socket = io(); // Inicializamos socketIO en el cliente
 
@@ -30,6 +30,3 @@ var socket = io(); // Inicializamos socketIO en el cliente
      $(document).on('click','#reloj', function (evt){
         socket.emit('reloj');
     });
- };
-
- module.exports = scriptnuestro;
