@@ -12,6 +12,7 @@ var io   = require('socket.io')(http);
 
 
 var sn = require('scriptnuestro');
+var sni = new sn();
 
 
 
@@ -33,26 +34,26 @@ app.get('/views/js/scriptnuestro.js', function (req, res) {
 });
 
 /** *** *** ***
- *  Configuramos Socket.IO para estar a la escucha de
+ *  Configuramos scriptnuestro.socket.IO para estar a la escucha de
  *  nuevas conexiones.
  */
-io.on('connection', function(socket) {
+io.on('connection', function(sni.socket) {
   
   console.log('New user connected');
   
   /**
-   * Cada nuevo socket debera estar a la escucha
+   * Cada nuevo scriptnuestro.socket debera estar a la escucha
    * del evento 'chat message', el cual se activa
    * cada vez que un usuario envia un mensaje.
    * 
    * @param  msg : Los datos enviados desde el cliente a 
-   *               travÃ©s del socket.
+   *               travÃ©s del scriptnuestro.socket.
    */
-  socket.on('chat message', function(msg) {
+  sni.socket.on('chat message', function(msg) {
     io.emit('chat message', msg);
   });
 
-  socket.on('reloj', function(msg) {
+  sni.socket.on('reloj', function(msg) {
     reloj(0);
   });
   
@@ -60,7 +61,7 @@ io.on('connection', function(socket) {
    * Mostramos en consola cada vez que un usuario
    * se desconecte del sistema.
    */
-  socket.on('disconnect', function() {
+  sni.socket.on('disconnect', function() {
     console.log('User disconnected');
   });
   
