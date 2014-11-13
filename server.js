@@ -11,8 +11,7 @@ var http = require('http').Server(app);
 var io   = require('socket.io')(http);
 
 
-var sn = require('scriptnuestro.js');
-var sni = new sn();
+var sn = require('scriptnuestro');
 
 
 
