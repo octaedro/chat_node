@@ -27,6 +27,10 @@ app.get('/files/js/script.js', function(req, res) {
   res.sendFile( __dirname + '/files/js/script.js');
 });
 
+app.get('/files/css/styles.css', function(req, res) {
+  res.sendFile( __dirname + '/files/css/styles.css');
+});
+
 
 /** *** *** ***
  *  Configuramos Socket.IO para estar a la escucha de
