@@ -9,7 +9,11 @@
 var app  = require('express')();
 var http = require('http').Server(app);
 var io   = require('socket.io')(http);
-//var st = require('./chat.js');
+
+
+var sn = require('scriptnuestro.js');
+var sni = new sn();
+
 
 
 /** *** *** ***
@@ -26,7 +30,7 @@ app.get('/2', function(req, res) {
 });
 
 app.get('/views/js/scriptnuestro.js', function (req, res) {
-   res.sendfile(__dirname + '/views/js/scriptnuestro.js');
+   res.sendfile( __dirname + '/views/js/scriptnuestro.js');
 });
 
 /** *** *** ***
