@@ -11,6 +11,11 @@ var http = require('http').Server(app);
 var io   = require('socket.io')(http);
 
 
+var sn = require('scriptnuestro.js');
+var sni = new sn();
+
+
+
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
  *  de manera que sin importar la ruta que el usuario solicite
