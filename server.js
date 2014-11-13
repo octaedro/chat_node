@@ -13,7 +13,7 @@ var io   = require('socket.io')(http);
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
  *  de manera que sin importar la ruta que el usuario solicite
- *  siempre lo direccionaremos al html del sistema de chat.
+ *  siempre lo direccionaremos al html del sistema de chat....
  */
 app.get('/', function(req, res) {
   res.sendFile( __dirname + '/views/chat.html');
