@@ -9,7 +9,7 @@
 var app  = require('express')();
 var http = require('http').Server(app);
 var io   = require('socket.io')(http);
-var st = require('./js/chat.js');
+var st = require('./views/js/chat.js');
 
 
 /** *** *** ***
