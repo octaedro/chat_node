@@ -113,7 +113,7 @@ http.listen(3000, function() {
 
 function reloj(i){    
     setInterval(function(){
-      if(i<0){
+      if(i<10){
         io.emit('mostrar_reloj',++i); 
       }
       else{
