@@ -344,7 +344,7 @@ this.Bar = function(data,options){
 		barStrokeWidth : 2,
 		barValueSpacing : 5,
 		barDatasetSpacing : 1,
-		animation : true,
+		animation : false,
 		animationSteps : 100,
 		animationEasing : "easeOutQuart",
 		onAnimationComplete : null
