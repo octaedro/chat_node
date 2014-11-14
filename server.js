@@ -9,7 +9,7 @@ var app  = require('express')();
 var http = require('http').Server(app);
 var io   = require('socket.io')(http);
 
-
+var votos = 0;
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
  *  de manera que sin importar la ruta que el usuario solicite
@@ -27,6 +27,10 @@ app.get('/files/js/script.js', function(req, res) {
   res.sendFile( __dirname + '/files/js/script.js');
 });
 
+app.get('/files/js/Chart.js', function(req, res) {
+  res.sendFile( __dirname + '/files/js/Chart.js');
+});
+
 app.get('/files/css/styles.css', function(req, res) {
   res.sendFile( __dirname + '/files/css/styles.css');
 });
@@ -37,6 +41,7 @@ app.get('/files/css/styles.css', function(req, res) {
  *  nuevas conexiones.
  */
 io.on('connection', function(socket) {
+
   
   console.log('New user connected');
   
@@ -55,7 +60,36 @@ io.on('connection', function(socket) {
   socket.on('reloj', function(msg) {
     reloj(0);
   });
+
+  socket.on('votA', function() {
+    io.emit('mostrar_grafica',votos);
+  });
   
+  socket.on('votB', function() {
+    votos--;
+    io.emit('mostrar_grafica',votos);
+  });
+
+  socket.on('votC', function() {
+    votos++;
+    io.emit('mostrar_grafica',votos);
+  });
+  
+  socket.on('votD', function() {
+    votos--;
+    io.emit('mostrar_grafica',votos);
+  });
+/*
+  socket.on('votsi', function() {
+    votos++;
+    io.emit('mostrar_votos',votos);
+  });
+  
+  socket.on('votno', function() {
+    votos--;
+    io.emit('mostrar_votos',votos);
+  });
+
   /**
    * Mostramos en consola cada vez que un usuario
    * se desconecte del sistema.

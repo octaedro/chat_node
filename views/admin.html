@@ -7,11 +7,16 @@
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script src="/socket.io/socket.io.js"></script>  
   <script src="/files/js/script.js"></script>
+  <script src="/files/js/Chart.js"></script>
 </head>
 <body>
   <h3>Messages:</h3>
   <ul id="list-msgs"></ul>
   <textarea id="new-msg" cols="30" rows="5" placeholder="New message"></textarea><span style="color:blue;font-size:20px;margin-left: 10px;margin-right: 10px;" id="mostrar_reloj"></span>
   <button id="reloj">Activar Reloj</button>
+  <span style="color:red;font-size:40px;margin-left: 10px;margin-right: 10px;" id="mostrar_votos"></span>
+  <div style="float:left; width: 80%; height: 50%">
+          <canvas id="myChart" width="800" height="350"></canvas>
+        </div>
 </body>
 </html>
