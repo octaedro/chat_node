@@ -60,7 +60,7 @@ io.on('connection', function(socket) {
   });
 
   socket.on('reloj', function(msg) {
-    reloj(60);
+    reloj(0);
   });
 
   socket.on('votA', function() {
@@ -113,8 +113,8 @@ http.listen(3000, function() {
 
 function reloj(i){    
     setInterval(function(){
-      if(i<60){
-        io.emit('mostrar_reloj',--i); 
+      if(i<0){
+        io.emit('mostrar_reloj',++i); 
       }
       else{
         clearInterval();
