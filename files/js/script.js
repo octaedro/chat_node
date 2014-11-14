@@ -8,7 +8,7 @@ function init(){
     /**
      * Listener para el evento 'chat message'
      *   Notese que es el mismo evento que se envia 
-     *   desde el servidor.
+     *   desde el servidor.<zx<zx
      * Agregamos el mensage entrante a la lista.
      */
      socket.on('chat message', function (msg) {
