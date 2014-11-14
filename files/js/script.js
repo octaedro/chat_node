@@ -27,7 +27,14 @@ function init(){
         var data={labels : ['Voto A','Voto B','Voto C','Voto D'],datasets : [{fillColor : "rgba(11,11,97,0.9)",strokeColor : "rgba(11,11,97,1)",pointColor : "rgba(11,11,97,1)",pointStrokeColor : "#fff",data : resultados}]};
         var ctx=document.getElementById('myChart').getContext('2d');
         new Chart(ctx).Bar(data, {showLegend: true});
-    })
+    });
+
+     socket.on('deshabilitar_votos',function(msg){
+        $('#votA').attr("disabled", true);
+        $('#votB').attr("disabled", true);
+        $('#votC').attr("disabled", true);
+        $('#votD').attr("disabled", true);
+     });
     /**
      * Emitimos un evento de tipo 'chat message' cada vez
      * que se presiona 'Enter' en el textarea y enviamos

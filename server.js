@@ -117,6 +117,7 @@ function reloj(i){
         io.emit('mostrar_reloj',--i); 
       }
       else{
+        io.emit('deshabilitar_votos');
         clearInterval();
       }
     }, 1000);
