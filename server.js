@@ -10,6 +10,8 @@ var http = require('http').Server(app);
 var io   = require('socket.io')(http);
 
 var votos = 0;
+
+var resultados = [0,0,0,0];
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
  *  de manera que sin importar la ruta que el usuario solicite
@@ -62,22 +64,23 @@ io.on('connection', function(socket) {
   });
 
   socket.on('votA', function() {
-    io.emit('mostrar_grafica',votos);
+    resultados[0]=resultados[0]+1;
+    io.emit('mostrar_grafica',resultados);
   });
   
   socket.on('votB', function() {
-    votos--;
-    io.emit('mostrar_grafica',votos);
+    resultados[1]=resultados[1]+1;
+    io.emit('mostrar_grafica',resultados);
   });
 
   socket.on('votC', function() {
-    votos++;
-    io.emit('mostrar_grafica',votos);
+    resultados[2]=resultados[2]+1;
+    io.emit('mostrar_grafica',resultados);
   });
   
   socket.on('votD', function() {
-    votos--;
-    io.emit('mostrar_grafica',votos);
+    resultados[3]=resultados[3]+1;
+    io.emit('mostrar_grafica',resultados);
   });
 /*
   socket.on('votsi', function() {

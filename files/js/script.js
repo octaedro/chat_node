@@ -23,8 +23,8 @@ function init(){
       $('#mostrar_votos').text(msg);
   });
 
-     socket.on('mostrar_grafica', function (msg){
-        var data={labels : ['Voto A','Voto B','Voto C','Voto D'],datasets : [{fillColor : "rgba(11,11,97,0.9)",strokeColor : "rgba(11,11,97,1)",pointColor : "rgba(11,11,97,1)",pointStrokeColor : "#fff",data : [65, 59, 80, 81]}]};
+     socket.on('mostrar_grafica', function (resultados){
+        var data={labels : ['Voto A','Voto B','Voto C','Voto D'],datasets : [{fillColor : "rgba(11,11,97,0.9)",strokeColor : "rgba(11,11,97,1)",pointColor : "rgba(11,11,97,1)",pointStrokeColor : "#fff",data : resultados}]};
         var ctx=document.getElementById('myChart').getContext('2d');
         new Chart(ctx).Bar(data, {showLegend: true});
     })
