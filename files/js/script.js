@@ -53,18 +53,22 @@ function init(){
  });
 
  $(document).on('click','#votA', function (evt){
+    deshabilitar_votos();
     socket.emit('votA');
 });
 
  $(document).on('click','#votB', function (evt){
+    deshabilitar_votos();
     socket.emit('votB');
 });
 
  $(document).on('click','#votC', function (evt){
+    deshabilitar_votos();
     socket.emit('votC');
 });
 
  $(document).on('click','#votD', function (evt){
+    deshabilitar_votos();
     socket.emit('votD');
 });
 /*
