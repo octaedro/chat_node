@@ -120,7 +120,7 @@
     }
     else{
       io.emit('deshabilitar_votos');
-      clearInterval();
+      clearInterval(reloj(i));
     }
   }, 1000);
 }
