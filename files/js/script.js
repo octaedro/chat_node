@@ -3,7 +3,6 @@ $(document).ready(init);
 var socket;
 
 function init(){
-    deshabilitar_votos();
 
 	socket = io(); // Inicializamos socketIO en el cliente
 
