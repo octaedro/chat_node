@@ -30,10 +30,7 @@ function init(){
     });
 
      socket.on('deshabilitar_votos',function(msg){
-        $('#votA').attr("disabled", true);
-        $('#votB').attr("disabled", true);
-        $('#votC').attr("disabled", true);
-        $('#votD').attr("disabled", true);
+        deshabilitar_votos();
      });
     /**
      * Emitimos un evento de tipo 'chat message' cada vez
@@ -71,6 +68,13 @@ function init(){
     deshabilitar_votos();
     socket.emit('votD');
 });
+
+ function deshabilitar_votos(){
+    $('#votA').attr("disabled", true);
+        $('#votB').attr("disabled", true);
+        $('#votC').attr("disabled", true);
+        $('#votD').attr("disabled", true);
+ }
 /*
 $(document).on('click','#votsi', function (evt){
     socket.emit('votsi');
