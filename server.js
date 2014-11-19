@@ -115,7 +115,7 @@
  function reloj(i){    
   setInterval(function(){
     if(i>0){
-      io.emit('habilitar_votos', msg);
+      io.emit('habilitar_votos');
       io.emit('mostrar_reloj',--i); 
     }
     else{

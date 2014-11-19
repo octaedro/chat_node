@@ -34,7 +34,7 @@ function init(){
         deshabilitar_votos();
     });
 
-     socket.on('habilitar_votos',function(msg){
+     socket.on('habilitar_votos',function(){
        $('#votA').attr("disabled", false);
        $('#votB').attr("disabled", false);
        $('#votC').attr("disabled", false);
