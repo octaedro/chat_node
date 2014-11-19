@@ -34,10 +34,10 @@ function init(){
     });
 
      socket.on('habilitar_votos',function(msg){
-       $('#votA').attr("enabled", true);
-       $('#votB').attr("enabled", true);
-       $('#votC').attr("enabled", true);
-       $('#votD').attr("enabled", true);
+       $('#votA').attr("disabled", false);
+       $('#votB').attr("disabled", false);
+       $('#votC').attr("disabled", false);
+       $('#votD').attr("disabled", false);
    })
     /**
      * Emitimos un evento de tipo 'chat message' cada vez

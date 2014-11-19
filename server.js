@@ -61,8 +61,8 @@ io.on('connection', function(socket) {
 
   socket.on('reloj', function(msg) {
     reloj(60);
-    io.emit('mostrar_grafica',resultados);
     io.emit('habilitar_votos', msg);
+    io.emit('mostrar_grafica',resultados);
   });
 
   socket.on('votA', function() {
