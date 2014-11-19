@@ -31,7 +31,14 @@ function init(){
 
      socket.on('deshabilitar_votos',function(msg){
         deshabilitar_votos();
-     });
+    });
+
+     socket.on('habilitar_votos',function(msg){
+       $('#votA').attr("disabled", false);
+       $('#votB').attr("disabled", false);
+       $('#votC').attr("disabled", false);
+       $('#votD').attr("disabled", false);
+   })
     /**
      * Emitimos un evento de tipo 'chat message' cada vez
      * que se presiona 'Enter' en el textarea y enviamos
@@ -71,10 +78,10 @@ function init(){
 
  function deshabilitar_votos(){
     $('#votA').attr("disabled", true);
-        $('#votB').attr("disabled", true);
-        $('#votC').attr("disabled", true);
-        $('#votD').attr("disabled", true);
- }
+    $('#votB').attr("disabled", true);
+    $('#votC').attr("disabled", true);
+    $('#votD').attr("disabled", true);
+}
 /*
 $(document).on('click','#votsi', function (evt){
     socket.emit('votsi');
