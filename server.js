@@ -112,10 +112,11 @@
   console.log('listening on *:3000');
 });
 
- function reloj(i){
+function reloj(i){
+  i=i-1;
   io.emit('habilitar_votos');
   if(i>0){
-    io.emit('mostrar_reloj',--i); 
+    io.emit('mostrar_reloj',i); 
   }else{
     io.emit('deshabilitar_votos');
     myStopFunction();
@@ -123,5 +124,5 @@
 }
 
 function myStopFunction() {
-  clearInterval(myVar);
+    clearInterval(myVar);
 }
