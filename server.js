@@ -10,6 +10,7 @@
  var io   = require('socket.io')(http);
 
  var votos = 0;
+ var cronometro=60;
 
  var resultados = [0,0,0,0];
 /** *** *** ***
@@ -60,7 +61,7 @@
   });
 
    socket.on('reloj', function(msg) {
-    var myVar = setInterval(function(){reloj(60)}, 1000);
+    var myVar = setInterval(function(){reloj(cronometro)}, 1000);
     io.emit('mostrar_grafica',resultados);
   });
 
@@ -112,22 +113,16 @@
   console.log('listening on *:3000');
 });
 
- function reloj(i){    
-  io.emit('habilitar_votos');
-  setInterval(function(){
-    for(var i=60; i=0; i--){
-      io.emit('mostrar_reloj',i);
-    }
-    io.emit('deshabilitar_votos');
-  }, 1000);
-}
+
 
 
 
 function reloj(i){
+  i=i-1;
+  cronometro=i;
   io.emit('habilitar_votos');
   if(i>0){
-    io.emit('mostrar_reloj',--i); 
+    io.emit('mostrar_reloj',i); 
   }else{
     io.emit('deshabilitar_votos');
     myStopFunction();
