@@ -12,6 +12,7 @@
  var votos = 0;
  var cronometro = 0;
  var resultados = [0,0,0,0];
+ var myVar;
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
  *  de manera que sin importar la ruta que el usuario solicite
@@ -61,7 +62,7 @@
 
    socket.on('reloj', function(msg) {
     cronometro=60;
-    var myVar = setInterval(function(){reloj(cronometro)}, 1000);
+    myVar = setInterval(function(){reloj(cronometro)}, 1000);
     io.emit('mostrar_grafica',resultados);
   });
 
@@ -112,10 +113,6 @@
  http.listen(3000, function() {
   console.log('listening on *:3000');
 });
-
-
-
-
 
 function reloj(i){
   cronometro=i-1;
