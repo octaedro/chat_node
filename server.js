@@ -10,7 +10,7 @@
  var io   = require('socket.io')(http);
 
  var votos = 0;
-
+ var cronometro = 0;
  var resultados = [0,0,0,0];
 /** *** *** ***
  *  Configuramos el sistema de ruteo para las peticiones web
@@ -118,8 +118,7 @@
 
 
 function reloj(i){
-  i=i-1;
-  cronometro=i;
+  cronometro=i-1;
   io.emit('habilitar_votos');
   if(i>0){
     io.emit('mostrar_reloj',--i); 
