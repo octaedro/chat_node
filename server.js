@@ -118,6 +118,7 @@
     if(i>0){
       io.emit('mostrar_reloj',--i); 
     }else{
+      io.emit('mostrar_reloj',--i);
       io.emit('deshabilitar_votos');
       clearInterval();
     }
