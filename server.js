@@ -60,7 +60,7 @@
   });
 
    socket.on('reloj', function(msg) {
-    reloj(60);
+    var myVar = setInterval(function(){reloj(60)}, 1000);
     io.emit('mostrar_grafica',resultados);
   });
 
@@ -112,15 +112,16 @@
   console.log('listening on *:3000');
 });
 
- function reloj(i){    
-      io.emit('habilitar_votos');
-  setInterval(function(){
-    if(i>0){
-      io.emit('mostrar_reloj',--i); 
-    }else{
-      io.emit('mostrar_reloj',--i);
-      io.emit('deshabilitar_votos');
-      clearInterval();
-    }
-  }, 1000);
+ function reloj(i){
+  io.emit('habilitar_votos');
+  if(i>0){
+    io.emit('mostrar_reloj',--i); 
+  }else{
+    io.emit('deshabilitar_votos');
+    myStopFunction();
+  }
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
 }
