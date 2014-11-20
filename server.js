@@ -60,7 +60,7 @@
   });
 
    socket.on('reloj', function(msg) {
-    cronometro=60;
+    var cronometro=60;
     var myVar = setInterval(function(){reloj(cronometro)}, 1000);
     io.emit('mostrar_grafica',resultados);
   });
