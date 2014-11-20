@@ -113,12 +113,11 @@
 });
 
  function reloj(i){    
+      io.emit('habilitar_votos');
   setInterval(function(){
     if(i>0){
-      io.emit('habilitar_votos');
       io.emit('mostrar_reloj',--i); 
-    }
-    else{
+    }else{
       io.emit('deshabilitar_votos');
       clearInterval();
     }
