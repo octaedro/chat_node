@@ -88,15 +88,6 @@
     io.emit('mostrar_grafica',resultados);
   });
 /*
-  socket.on('votsi', function() {
-    votos++;
-    io.emit('mostrar_votos',votos);
-  });
-  
-  socket.on('votno', function() {
-    votos--;
-    io.emit('mostrar_votos',votos);
-  });
 
   /**
    * Mostramos en consola cada vez que un usuario
@@ -110,7 +101,7 @@
 
 
 /**
- * Iniciamos la aplicaciÃ³n en el puerto 3000
+ * Iniciamos la aplicacion en el puerto 3000
  */
  http.listen(3000, function() {
   console.log('listening on *:3000');
