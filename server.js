@@ -39,6 +39,7 @@
 });
 
 
+
 /** *** *** ***
  *  Configuramos Socket.IO para estar a la escucha de
  *  nuevas conexiones.
@@ -115,7 +116,7 @@
   console.log('listening on *:3000');
 });
 
-function reloj(i){
+ function reloj(i){
   cronometro=i-1;
   if(i>0){
     io.emit('mostrar_reloj',--i); 
@@ -126,5 +127,5 @@ function reloj(i){
 }
 
 function myStopFunction() {
-    clearInterval(myVar);
+  clearInterval(myVar);
 }

@@ -14,24 +14,24 @@ function init(){
      */
      socket.on('chat message', function (msg) {
       $('#list-msgs').append( $('<li>').text(msg) );
-  });
+    });
 
      socket.on('mostrar_reloj', function (msg) {
       $('#mostrar_reloj').text(msg);
-  });
+    });
 
      socket.on('mostrar_votos', function (msg) {
       $('#mostrar_votos').text(msg);
-  });
+    });
 
      socket.on('mostrar_grafica', function (resultados){
-        var data={labels : ['Voto A','Voto B','Voto C','Voto D'],datasets : [{fillColor : "rgba(11,11,97,0.9)",strokeColor : "rgba(11,11,97,1)",pointColor : "rgba(11,11,97,1)",pointStrokeColor : "#fff",data : resultados}]};
-        var ctx=document.getElementById('myChart').getContext('2d');
-        new Chart(ctx).Bar(data, {showLegend: true});
+      var data={labels : ['Voto A','Voto B','Voto C','Voto D'],datasets : [{fillColor : "rgba(11,11,97,0.9)",strokeColor : "rgba(11,11,97,1)",pointColor : "rgba(11,11,97,1)",pointStrokeColor : "#fff",data : resultados}]};
+      var ctx=document.getElementById('myChart').getContext('2d');
+      new Chart(ctx).Bar(data, {showLegend: true});
     });
 
      socket.on('deshabilitar_votos',function(msg){
-        deshabilitar_votos();
+      deshabilitar_votos();
     });
 
      socket.on('habilitar_votos',function(){
@@ -39,7 +39,7 @@ function init(){
        $('#votB').attr("disabled", false);
        $('#votC').attr("disabled", false);
        $('#votD').attr("disabled", false);
-   })
+     })
     /**
      * Emitimos un evento de tipo 'chat message' cada vez
      * que se presiona 'Enter' en el textarea y enviamos
@@ -49,40 +49,40 @@ function init(){
       if (evt.keyCode === 13) {
         socket.emit('chat message', $('#new-msg').val());
         $('#new-msg').val('');
-    }
-});
- }
+      }
+    });
+   }
 
- $(document).on('click','#reloj', function (evt){
- 	socket.emit('reloj');
- });
+   $(document).on('click','#reloj', function (evt){
+    socket.emit('reloj');
+  });
 
- $(document).on('click','#votA', function (evt){
+   $(document).on('click','#votA', function (evt){
     deshabilitar_votos();
     socket.emit('votA');
-});
+  });
 
- $(document).on('click','#votB', function (evt){
+   $(document).on('click','#votB', function (evt){
     deshabilitar_votos();
     socket.emit('votB');
-});
+  });
 
- $(document).on('click','#votC', function (evt){
+   $(document).on('click','#votC', function (evt){
     deshabilitar_votos();
     socket.emit('votC');
-});
+  });
 
- $(document).on('click','#votD', function (evt){
+   $(document).on('click','#votD', function (evt){
     deshabilitar_votos();
     socket.emit('votD');
-});
+  });
 
- function deshabilitar_votos(){
+   function deshabilitar_votos(){
     $('#votA').attr("disabled", true);
     $('#votB').attr("disabled", true);
     $('#votC').attr("disabled", true);
     $('#votD').attr("disabled", true);
-}
+  }
 /*
 $(document).on('click','#votsi', function (evt){
     socket.emit('votsi');
