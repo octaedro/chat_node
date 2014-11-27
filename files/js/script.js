@@ -18,6 +18,7 @@ function init(){
 
      socket.on('mostrar_reloj', function (msg) {
       $('#mostrar_reloj').text(msg);
+      actualizarBarra(msg);
     });
 
      socket.on('mostrar_votos', function (msg) {
@@ -82,6 +83,11 @@ function init(){
     $('#votB').attr("disabled", true);
     $('#votC').attr("disabled", true);
     $('#votD').attr("disabled", true);
+  }
+
+  function actualizarBarra(msg){
+    var txt="<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'></div>";
+    $('#progress').append(txt);
   }
 /*
 $(document).on('click','#votsi', function (evt){
