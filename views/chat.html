@@ -7,6 +7,8 @@
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/files/js/script.js"></script>
+  <script>jQuery.noConflict();</script>
+  <script src="/files/js/bootstrap.min.js"></script>
   <script src="/files/js/Chart.js"></script>
 </head>
 <body>
@@ -14,6 +16,11 @@
   <ul id="list-msgs"></ul>
   <textarea id="new-msg" cols="30" rows="5" placeholder="New message"></textarea-->
     <span style="color:blue;font-size:50px;margin-left: 10px;margin-right: 10px;" id="mostrar_reloj"></span>
+    <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    <span class="sr-only">60% Complete</span>
+  </div>
+</div>
     <!--button id="reloj">Activar Reloj</button-->
     <button id="votA">Voto A</button>
     <button id="votB">Voto B</button>

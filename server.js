@@ -38,6 +38,10 @@
   res.sendFile( __dirname + '/files/css/styles.css');
 });
 
+ app.get('/files/js/bootstrap.min.js', function(req, res) {
+  res.sendFile( __dirname + '/files/js/bootstrap.min.js');
+});
+
 
 
 /** *** *** ***
