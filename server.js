@@ -66,7 +66,7 @@
   });
 
    socket.on('reloj', function(msg) {
-    cronometro=1800;
+    cronometro=60;
     io.emit('habilitar_votos');
     myVar = setInterval(function(){reloj(cronometro)}, 1000);
     io.emit('mostrar_grafica',resultados);
