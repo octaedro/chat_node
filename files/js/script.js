@@ -87,9 +87,10 @@ function init(){
 
   function actualizarBarra(msg){
     var porc=(60-msg)*100/60;
-    var txt="<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: "+porc+"%;'></div>";
-    $('#progress').empty();
-    $('#progress').append(txt);
+    //var txt="<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: "+porc+"%;'></div>";
+    document.getElementById("progress-bar").style.width=porc;
+    //$('#progress').empty();
+    //$('#progress').append(txt);
   }
 /*
 $(document).on('click','#votsi', function (evt){
